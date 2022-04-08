@@ -1,24 +1,30 @@
 <div class="container ">
   <br>
-  <h3 class="mb-3 mt-6">Create an Account</h3>
-  <form [formGroup]="form">
-    <div class="form-floating mb-3">
-      <input type="text" formControName="username" placeholder="Username" class="form-control" aria-label="Username"
-        value="test@example.com">
-      <label class="form-label">Username</label>
-    </div>
-    <div class="row justify-content-start">
+  <div class="card justify-content-center" style="width: 50rem;">
+    <div class="card-body">
 
-      <div class="mb-3 col-8">
-        <label class="form-label">Password</label>
-        <input type="text" formControName="password" placeholder="******" class="form-control" aria-label="Password">
-      </div>
-      <div class="mb-3 col-4">
-        <label class="form-label">Confirm Password</label>
-        <input type="text" formControName="passwordConfirmation" placeholder="******" class="form-control"
-          aria-label="Confirm Password">
-      </div>
+      <h3 class="mb-3 mt-6">Create an Account</h3>
+      <form [formGroup]="form">
+        <div class="form-floating mb-3">
+          <input type="text" formControName="username" placeholder="Username" class="form-control" aria-label="Username"
+            value="test@example.com">
+          <label class="form-label">Username</label>
+        </div>
+        <div class="row justify-content-start">
+
+          <div class="mb-3 col-8">
+            <label class="form-label">Password</label>
+            <input type="text" formControName="password" placeholder="******" class="form-control"
+              aria-label="Password">
+          </div>
+          <div class="mb-3 col-4">
+            <label class="form-label">Confirm Password</label>
+            <input type="text" formControName="passwordConfirmation" placeholder="******" class="form-control"
+              aria-label="Confirm Password">
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 
 </div>
