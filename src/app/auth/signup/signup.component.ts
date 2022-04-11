@@ -51,9 +51,18 @@ export class SignupComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
-    this.authService.signup(this.form.value).subscribe((response) => {
-      console.log(response.username);
-    });
+    this.authService.signup(this.form.value).subscribe(
+      (response) => {
+        console.log(response.username);
+      },
+      (error) => {
+        if (!error.status) {
+          this.form.setErrors({ noConnection: true });
+        } else {
+          this.form.setErrors({ unknownError: true });
+        }
+      }
+    );
   }
 
   showErrorPasswordDontMatch() {
