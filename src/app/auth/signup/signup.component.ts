@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.maxLength(13),
+          Validators.maxLength(20),
         ],
         [this.uniqueUsername.validate.bind(this.uniqueUsername)]
       ),
@@ -45,6 +45,10 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
     console.log(this.form.value);
   }
 
