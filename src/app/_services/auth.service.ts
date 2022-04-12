@@ -26,11 +26,19 @@ export class AuthService {
   }
   signup(values: SignupCredentials) {
     return this.http
-      .post<SignupResponse>(this.baseUrl + '/auth/signup/', values)
+      .post<SignupResponse>(this.baseUrl + '/auth/signup/', values, {
+        withCredentials: true,
+      })
       .pipe(
         tap(() => {
           this.signedin$.next(true);
         })
       );
+  }
+
+  checkAuth() {
+    return this.http.get(`${this.baseUrl}/auth/signedin`, {
+      withCredentials: true,
+    });
   }
 }
