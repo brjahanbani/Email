@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'Email';
   constructor(private authService: AuthService) {
     this.authService.checkAuth().subscribe((response) => {
-      console.log(response);
+      // console.log(response);
     });
   }
 }

@@ -53,7 +53,7 @@ export class SignupComponent implements OnInit {
     }
     this.authService.signup(this.form.value).subscribe(
       (response) => {
-        console.log(response.username);
+        // console.log(response.username);
       },
       (error) => {
         if (!error.status) {
