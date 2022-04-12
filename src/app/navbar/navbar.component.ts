@@ -7,12 +7,12 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  public sign = false;
-  constructor(private authService: AuthService) {}
+  // public sign = false; ************************************using async
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
-    this.authService.signedin$.subscribe((value) => {
-      this.sign = value;
-    });
+    // this.authService.signedin$.subscribe((value) => {
+    //   this.sign = value;
+    // }); ************************************using async
   }
 }

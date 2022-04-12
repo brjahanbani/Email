@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
 
-        <ng-container *ngIf="sign; else signedout">
+        <ng-container *ngIf="authService.signedin$ | async; else signedout">
           <li class="nav-item">
             <a class="nav-link" routerLink="/inbox" routerLinkActive="active">Inbox</a>
           </li>
@@ -22,7 +22,8 @@
             <a class="nav-link" routerLink="/signup" routerLinkActive="active">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/signin" routerLinkActive="active">Log in</a>
+            <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Log
+              in</a>
           </li>
         </ng-template>
 
