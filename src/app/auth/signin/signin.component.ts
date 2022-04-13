@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { AuthService } from 'src/app/_services/auth.service';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   form = new FormGroup({
     username: new FormControl('', [
@@ -32,12 +34,29 @@ export class SigninComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
-    this.authService.signin(this.form.value).subscribe((response) => {
-      console.log(response);
-    });
+    this.authService.signin(this.form.value).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error: any) => {
+        if (!error.status) {
+          this.form.setErrors({ noConnection: true });
+        } else {
+          this.form.setErrors({ unknownError: true });
+        }
+      }
+    );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService
+      .signout()
+      .pipe(delay(2000))
+      .subscribe(() => {
+        //TODO: redirect to home
+        this.router.navigate(['/inbox']);
+      });
+  }
   showErrorPasswordDontMatch() {
     return (
       this.form.controls.password.dirty &&
