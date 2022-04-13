@@ -36,13 +36,18 @@ export class SigninComponent implements OnInit {
     }
     this.authService.signin(this.form.value).subscribe(
       (response) => {
-        console.log(response);
+        //TODO : redirect to home
       },
       (error: any) => {
         if (!error.status) {
           this.form.setErrors({ noConnection: true });
+          return;
+        }
+        if (error.error.username || error.error.password) {
+          this.form.setErrors({ credential: true });
         } else {
           this.form.setErrors({ unknownError: true });
+          return;
         }
       }
     );
