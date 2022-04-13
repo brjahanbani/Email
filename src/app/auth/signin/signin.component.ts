@@ -36,7 +36,7 @@ export class SigninComponent implements OnInit {
     }
     this.authService.signin(this.form.value).subscribe(
       (response) => {
-        //TODO : redirect to home
+        this.router.navigate(['/inbox']);
       },
       (error: any) => {
         if (!error.status) {
@@ -54,13 +54,13 @@ export class SigninComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService
-      .signout()
-      .pipe(delay(2000))
-      .subscribe(() => {
-        //TODO: redirect to home
-        this.router.navigate(['/inbox']);
-      });
+    // this.authService
+    //   .signout()
+    //   .pipe(delay(2000))
+    //   .subscribe(() => {
+    //     //TODO: redirect to home
+    //     this.router.navigate(['/inbox']);
+    //   });
   }
   showErrorPasswordDontMatch() {
     return (
