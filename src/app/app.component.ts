@@ -18,6 +18,6 @@ export class AppComponent implements OnInit {
       this.authService.signout().subscribe((response) => {
         console.log(response);
       });
-    }, 5000);
+    }, 5000000);
   }
 }
