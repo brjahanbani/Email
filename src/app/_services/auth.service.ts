@@ -24,7 +24,6 @@ export interface LoginResponse {
   providedIn: 'root',
 })
 export class AuthService {
-  // private (property) AuthService.signedin$: BehaviorSubject<boolean>;
   private baseUrl = 'https://api.angular-email.com';
   public signedin$ = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) {}
