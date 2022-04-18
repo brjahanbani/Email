@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { EmailService } from 'src/app/_services/email.service';
 
 @Component({
   selector: 'app-email-show',
@@ -7,10 +8,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./email-show.component.css'],
 })
 export class EmailShowComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+  email: any;
+  constructor(
+    private route: ActivatedRoute,
+    private emailService: EmailService
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.route.params.subscribe(({ id }) => console.log(id)));
-    console.log(this.route.snapshot.params.id);
+    this.route.params.subscribe(({ id }) =>
+      this.emailService.getEmail(id).subscribe((email) => {
+        this.email = email;
+      })
+    );
+    // console.log(this.route.snapshot.params.id);
   }
 }
