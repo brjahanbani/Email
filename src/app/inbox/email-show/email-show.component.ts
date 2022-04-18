@@ -11,5 +11,6 @@ export class EmailShowComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.route.params.subscribe(({ id }) => console.log(id)));
+    console.log(this.route.snapshot.params.id);
   }
 }
