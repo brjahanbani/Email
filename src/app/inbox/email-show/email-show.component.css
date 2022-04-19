@@ -1,0 +1,15 @@
+
+.card {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 1px solid #0d6dfc77;
+    transition: all .2s;
+    box-shadow: 12px 12px 2px 1px #0d6dfc77;
+   }
+   
+   .card:hover {
+    box-shadow: -12px 12px 2px -1px #0d6dfc77;
+   }
