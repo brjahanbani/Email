@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
     EmailReplyComponent,
     EmailShowComponent,
     PlaceholderComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,
