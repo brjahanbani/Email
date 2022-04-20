@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 export interface EmailDetail {
-  id: string;
+  id: number;
   subject: string;
   text: string;
   from: string;
@@ -16,7 +16,7 @@ export interface EmailDetail {
 export class EmailService {
   private rootUrl = 'https://api.angular-email.com';
   constructor(private http: HttpClient) {}
-  private emails = [
+  private emails: EmailDetail[] = [
     {
       id: 1,
       subject: 'Invitation',
@@ -48,7 +48,7 @@ export class EmailService {
     //TODO create interface for emails
   }
 
-  getEmail(id: number) {
+  getEmail(id: number): Observable<EmailDetail | undefined> {
     const email = this.emails.find((e) => e.id == id);
     return of(email);
     //***********for calling Up emails as fake api data, this down was commented

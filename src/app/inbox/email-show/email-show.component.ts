@@ -13,7 +13,9 @@ export class EmailShowComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private emailService: EmailService
-  ) {}
+  ) {
+    this.route.data.subscribe((data) => console.log(data.email));
+  }
 
   ngOnInit(): void {
     this.route.params

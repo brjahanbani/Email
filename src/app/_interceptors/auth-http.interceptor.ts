@@ -22,10 +22,10 @@ export class AuthHttpInterceptor implements HttpInterceptor {
     return next.handle(modifyRequest).pipe(
       tap((value) => {
         if (value.type === HttpEventType.Sent) {
-          console.log('Sent');
+          // console.log('Sent');
         }
         if (value.type === HttpEventType.Response) {
-          console.log('Response');
+          // console.log('Response');
         }
       })
     );

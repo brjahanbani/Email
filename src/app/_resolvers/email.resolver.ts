@@ -6,22 +6,19 @@ import {
   ActivatedRouteSnapshot,
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { EmailDetail } from '../_services/email.service';
+import { EmailDetail, EmailService } from '../_services/email.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class EmailResolver implements Resolve<EmailDetail> {
+export class EmailResolver implements Resolve<EmailDetail | undefined> {
+  constructor(private emailService: EmailService) {}
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<EmailDetail> | EmailDetail {
-    return {
-      id: '1',
-      subject: 'Invitation',
-      text: 'You are hired in Aize',
-      from: 'hr@aize.com',
-      time: '2022.08.23',
-    };
+  ): Observable<EmailDetail | undefined> {
+    const id = route.params.id;
+
+    return this.emailService.getEmail(id);
   }
 }
