@@ -1,0 +1,43 @@
+<div class="modal d-block" (click)="onDismissClick()">
+  <div class="modal-dialog" (click)="$event.stopPropagation()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <ng-content select="[modalTitle]"></ng-content>
+        </h5>
+        <i (click)="onDismissClick()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
+      </div>
+      <div class="modal-body">
+        <ng-content select="[modalContent]"></ng-content>
+      </div>
+      <div class="modal-footer">
+        <button (click)="onDismissClick()" type="button" class="btn btn-primary">OK</button>
+      </div>
+      <!-- <div class="actions">
+        <ng-content select="[modalFooter]"></ng-content>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- <div (click)="onDismissClick()" class="dimmer visible active">
+  <div (click)="$event.stopPropagation()" class="modal visible active d-block">
+    <i class="close icon" (click)="onDismissClick()"></i>
+
+    <div class="modal-header">
+      <ng-content select="[modalTitle]"></ng-content>
+    </div>
+
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+
+    <div class="actions actions-default">
+      <button (click)="onDismissClick()" class="ui button primary">OK</button>
+    </div>
+
+    <div class="actions">
+      <ng-content select="[modalFooter]"></ng-content>
+    </div>
+  </div>
+</div> -->
