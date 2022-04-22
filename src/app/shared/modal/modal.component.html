@@ -2,16 +2,17 @@
   <div class="modal-dialog" (click)="$event.stopPropagation()">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">
+        <h3 class="modal-title">
           <ng-content select="[modalTitle]"></ng-content>
-        </h5>
-        <i (click)="onDismissClick()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
+        </h3>
+        <button (click)="onDismissClick()" type="button" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <ng-content select="[modalContent]"></ng-content>
       </div>
       <div class="modal-footer">
-        <button (click)="onDismissClick()" type="button" class="btn btn-primary">OK</button>
+        <button id="buttonOk" (click)="onDismissClick()" type="button" class="btn btn-primary">OK</button>
       </div>
       <!-- <div class="actions">
         <ng-content select="[modalFooter]"></ng-content>
