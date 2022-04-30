@@ -13,6 +13,7 @@ import {
 })
 export class ModalComponent implements OnInit {
   @Output() dismiss = new EventEmitter();
+
   constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
