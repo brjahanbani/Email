@@ -6,11 +6,12 @@
   </svg>
 </button>
 
-<app-modal (dismiss)="showModal = false" *ngIf="showModal">
 
+<!-- Modal Component  -->
+<app-modal [showBtn]="false" (dismiss)="showModal = false" *ngIf="showModal">
   <h4 modalTitle>Create an Email</h4>
-  <app-email-form></app-email-form>
-  <!-- <div modalContent>This is my Content</div>
-  <div modalFooter>My Footer</div> -->
-
+  <div modalContent>
+    <app-email-form [email]="email"></app-email-form>
+  </div>
+  <!-- <div modalFooter>My Footer</div>  -->
 </app-modal>

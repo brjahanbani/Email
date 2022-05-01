@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  Input,
   OnInit,
   Output,
 } from '@angular/core';
@@ -13,7 +14,7 @@ import {
 })
 export class ModalComponent implements OnInit {
   @Output() dismiss = new EventEmitter();
-
+  @Input() showBtn = true;
   constructor(private el: ElementRef) {}
 
   ngOnInit(): void {

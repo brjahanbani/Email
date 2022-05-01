@@ -1,1 +1,7 @@
-<p>email-form works!</p>
+<form class="form" [formGroup]="form">
+  <app-input label="subject" [control]="$any(form.get('subject'))" placeholder="Subject"></app-input>
+  <app-input label="content" [control]="$any(form.get('text'))" placeholder="Content"></app-input>
+  <app-input label="from" [control]="$any(form.get('from'))" type="email" placeholder="From"></app-input>
+  <app-input label="time" [control]="$any(form.get('time'))" type="time" placeholder="Time"></app-input>
+  <button type="submit" class="btn btn-primary">Send Email</button>
+</form>
