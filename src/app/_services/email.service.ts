@@ -8,6 +8,7 @@ export interface EmailDetail {
   text: string;
   from: string;
   time: string;
+  to: string;
 }
 
 @Injectable({
@@ -23,6 +24,7 @@ export class EmailService {
       text: 'You are hired in Aize',
       from: 'hr@aize.com',
       time: '2022.08.23',
+      to: '',
     },
     {
       id: 2,
@@ -30,6 +32,7 @@ export class EmailService {
       text: 'Forms you should apply ASAP to relocate',
       from: 'info@norway.gov',
       time: '2022.09.03',
+      to: '',
     },
     {
       id: 3,
@@ -37,6 +40,7 @@ export class EmailService {
       text: 'Congrats to your new car V90. Your first installation due is ...',
       from: 'sale@volvo.com',
       time: '2022.10.13',
+      to: '',
     },
   ];
   getEmails() {

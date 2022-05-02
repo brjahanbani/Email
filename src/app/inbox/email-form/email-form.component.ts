@@ -17,7 +17,7 @@ export class EmailFormComponent implements OnInit {
       subject: new FormControl(this.email.subject), //reply
       text: new FormControl(this.email.text), //reply
       from: new FormControl(this.email.from), // create  //reply
-      time: new FormControl(this.email.time), //reply
+      to: new FormControl(this.email.to), //reply
     });
   }
 }

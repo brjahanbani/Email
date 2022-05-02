@@ -16,7 +16,7 @@ export class EmailCreateComponent implements OnInit {
       text: '',
       from: 'babakjahanbani@xpnnt.com',
       time: '',
-      // to:'',
+      to: '',
     };
   }
 
