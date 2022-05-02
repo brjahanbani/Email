@@ -1,9 +1,10 @@
 <div class="form-floating mb-3">
   <input [type]="type" [formControl]="control" [placeholder]="placeholder" class="form-control" aria-label="Username" />
   <label class="form-label">{{ label }}</label>
+
   <ng-container *ngIf="showErrors()">
     <span class="badge bg-warning text-dark" *ngIf="control.hasError('required')">
-      Please enter your username
+      Is required
     </span>
     <span class="badge bg-danger" *ngIf="control.hasError('minlength')">
       Minimum length is {{ control.errors?.minlength.requiredLength }}
@@ -19,5 +20,14 @@
     <span class="badge bg-danger" *ngIf="control.hasError('unknownError')">
       Unknown Error
     </span>
+    <span class="badge bg-danger" *ngIf="control.hasError('email')">
+      Please enter a valid email address
+    </span>
+    <!-- <span class="badge bg-warning text-dark" *ngIf="control.hasError('email.subject')">
+      Email subject is required
+    </span>
+    <span class="badge bg-warning text-dark" *ngIf="control.hasError('email.text')">
+      Email content is required
+    </span> -->
   </ng-container>
 </div>

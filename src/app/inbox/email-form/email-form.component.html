@@ -1,7 +1,14 @@
 <form class="form" [formGroup]="form">
-  <app-input label="from" [control]="$any(form.get('from'))" type="email" placeholder="From"></app-input>
-  <app-input label="to" [control]="$any(form.get('to'))" type="email" placeholder="info@test.com"></app-input>
-  <app-input label="subject" [control]="$any(form.get('subject'))" placeholder="Subject"></app-input>
-  <app-input label="content" [control]="$any(form.get('text'))" placeholder="Content"></app-input>
-  <button type="submit" class="btn btn-primary">Send Email</button>
+
+  <app-input label="From" [control]="$any(form.get('from'))" type="email" placeholder="From"></app-input>
+  <app-input label="To" [control]="$any(form.get('to'))" type="email" placeholder="info@test.com"></app-input>
+  <app-input label="Subject" [control]="$any(form.get('subject'))" placeholder="Subject"></app-input>
+
+
+
+  <app-text-area label="Content" [control]="$any(form.get('text'))" placeholder="Write email text here">
+  </app-text-area>
+
+  <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Send Email</button>
+
 </form>
