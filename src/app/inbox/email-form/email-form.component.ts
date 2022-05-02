@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EmailDetail } from 'src/app/_services/email.service';
 
@@ -9,6 +9,8 @@ import { EmailDetail } from 'src/app/_services/email.service';
 })
 export class EmailFormComponent implements OnInit {
   @Input() email!: EmailDetail;
+  @Output() submitEmail = new EventEmitter();
+
   form!: FormGroup;
   constructor() {}
 
@@ -22,5 +24,13 @@ export class EmailFormComponent implements OnInit {
         Validators.email,
       ]), //reply
     });
+  }
+
+  onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+    this.submitEmail.emit(this.form.getRawValue()); //getRawValue is for disabled (unaccessable) from email
   }
 }

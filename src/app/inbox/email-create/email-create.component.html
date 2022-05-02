@@ -10,8 +10,10 @@
 <!-- Modal Component  -->
 <app-modal [showBtn]="false" (dismiss)="showModal = false" *ngIf="showModal">
   <h4 modalTitle>Create an Email</h4>
+
   <div modalContent>
-    <app-email-form [email]="email"></app-email-form>
+    <!-- call child component  -->
+    <app-email-form (submitEmail)="onSubmitForm($event)" [email]="email"></app-email-form>
   </div>
   <!-- <div modalFooter>My Footer</div>  -->
 </app-modal>

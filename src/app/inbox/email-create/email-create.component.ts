@@ -22,4 +22,7 @@ export class EmailCreateComponent implements OnInit {
       to: '',
     };
   }
+  onSubmitForm(email: EmailDetail) {
+    console.log(email);
+  }
 }
