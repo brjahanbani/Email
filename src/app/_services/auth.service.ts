@@ -26,6 +26,7 @@ export interface LoginResponse {
 export class AuthService {
   private baseUrl = 'https://api.angular-email.com';
   public signedin$ = new BehaviorSubject<boolean>(false);
+  username: string = '';
   constructor(private http: HttpClient) {}
 
   usernameAvailable(username: string) {
@@ -47,6 +48,7 @@ export class AuthService {
     return this.http.get(`${this.baseUrl}/auth/signedin`).pipe(
       tap((response: any) => {
         this.signedin$.next(response.authenticated);
+        this.username = response.username;
       })
     );
   }
