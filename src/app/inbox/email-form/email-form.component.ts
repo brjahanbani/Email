@@ -16,7 +16,7 @@ export class EmailFormComponent implements OnInit {
     this.form = new FormGroup({
       subject: new FormControl(this.email.subject), //reply
       text: new FormControl(this.email.text), //reply
-      from: new FormControl(this.email.from), // create  //reply
+      from: new FormControl({ value: this.email.from, disabled: true }), // create  //reply
       to: new FormControl(this.email.to), //reply
     });
   }
