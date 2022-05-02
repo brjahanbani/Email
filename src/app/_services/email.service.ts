@@ -58,4 +58,8 @@ export class EmailService {
     //***********for calling Up emails as fake api data, this down was commented
     // return this.http.get<EmailDetail>(`${this.rootUrl}/emails/${id}`);
   }
+
+  sendEmail(email: EmailDetail) {
+    return this.http.post(`${this.rootUrl}/emails`, email);
+  }
 }
