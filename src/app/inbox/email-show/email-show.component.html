@@ -1,9 +1,12 @@
-<div class="card mt-4">
+<div class="card mt-4" id="maincard">
   <div class="card-body">
     <h4 class="card-title">{{email.subject}}</h4>
     <h6>({{email.time}})</h6>
     <p class="card-text">
       <a>from: </a>{{email.from}}</p>
-    <p class="card-text mt-4">{{email.text}}</p>
+    <div class="card mt-4">
+      <p class="card-text mt-1" style="padding-left: 10px; padding-bottom: 100px;">{{email.text}}</p>
+    </div>
+    <app-email-reply [email]="email"></app-email-reply>
   </div>
 </div>

@@ -1,1 +1,15 @@
-<p>email-reply works!</p>
+<button (click)="showModal = true" class="btn btn-outline-primary mt-2" style="width: 100%; height:50px">
+  Reply
+</button>
+
+
+<!-- Modal Component  -->
+<app-modal [showBtn]="false" (dismiss)="showModal = false" *ngIf="showModal">
+  <h4 modalTitle>Reply Email</h4>
+
+  <div modalContent>
+    <!-- call child component  -->
+    <app-email-form (submitEmail)="onSubmitForm($event)" [email]="email"></app-email-form>
+  </div>
+  <!-- <div modalFooter>My Footer</div>  -->
+</app-modal>

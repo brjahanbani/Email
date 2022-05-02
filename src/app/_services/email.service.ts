@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { AuthService } from './auth.service';
 
 export interface EmailDetail {
   id: number;
@@ -24,7 +25,7 @@ export class EmailService {
       text: 'You are hired in Aize',
       from: 'hr@aize.com',
       time: '2022.08.23',
-      to: '',
+      to: ``,
     },
     {
       id: 2,
@@ -32,7 +33,7 @@ export class EmailService {
       text: 'Forms you should apply ASAP to relocate',
       from: 'info@norway.gov',
       time: '2022.09.03',
-      to: '',
+      to: ``,
     },
     {
       id: 3,
@@ -40,7 +41,7 @@ export class EmailService {
       text: 'Congrats to your new car V90. Your first installation due is ...',
       from: 'sale@volvo.com',
       time: '2022.10.13',
-      to: '',
+      to: ``,
     },
   ];
   getEmails() {
